@@ -59,7 +59,20 @@ class UsersController < ApplicationController
 
   def fetch_orders
     @user = User.find(params[:id])
-    
+    new_file_path = Rails.root.join('public', 'orders', "user_#{user_id}_orders.csv")
+
+    # should be moved to a sidekiq job in the future.
+    CSV.open(new_file_path, "wb") do |csv|
+      csv << ["USERNAME", "USER_EMAIL", "PRODUCT_CODE", "PRODUCT_NAME", "PRODUCT_CATEGORY", "ORDER_DATE"]
+      @user.order_details.each do |order|
+        csv << [@user.user_name, @user.email, order.product.code, order.product.name, order.product.category, order.order_date]
+      end
+    end
+    send_file file_path, :type => "text/plain", :x_sendfile => true
+
+    respond_to do |format|
+      format.html { redirect_to user_url(@user), notice: "Orders were successfully fetched." }
+    end
   end
   
   private
