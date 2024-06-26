@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for(:title) %></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ZenhVNpHmPQ0oW9R7MAXh6k//RnD1kZ8gIWYLUHtYfGyVzC7zfoKbOfDyP9yOcZ" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container mt-3">
+    <% if notice %>
+      <div class="alert alert-success" role="alert">
+        <%= notice %>
+      </div>
+    <% end %>
+
+    <h1>Users</h1>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">User Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Download Orders</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user[:user_name] %></td>
+            <td><%= user[:email] %></td>
+            <td>
+              <form action="/users/<%= user.id %>/fetch_orders" method="post">
+                <%= hidden_field_tag 'user_id', user.id %>
+                <button type="submit">Downloade orders for this users</button>
+              </form>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+    <%= link_to "New user", new_user_path, class: "btn btn-primary" %>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERFvqQZ8hhWGLvXHznJohnedkCUNowwkeWjQ+T89yCwHFYDqwlqHNljkES9nrq" crossorigin="anonymous"></script>
+</body>
+</html>
