@@ -2045,3 +2045,359 @@ Completed 200 OK in 92ms (Views: 45.3ms | ActiveRecord: 24.0ms (1 query, 0 cache
 
   [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."user_id" = $1 /* loading for pp */ LIMIT $2[0m  [["user_id", 32], ["LIMIT", 11]]
+Started GET "/" for ::1 at 2024-06-27 00:03:35 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (9.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (11.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  Rendered users/index.html.erb within layouts/application (Duration: 42.8ms | GC: 13.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 98.0ms | GC: 14.9ms)
+Completed 200 OK in 143ms (Views: 81.5ms | ActiveRecord: 22.1ms (1 query, 0 cached) | GC: 14.9ms)
+
+
+Started GET "/manifest.json" for ::1 at 2024-06-27 00:03:35 +0530
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users/32/fetch_orders" for ::1 at 2024-06-27 00:04:31 +0530
+Processing by UsersController#fetch_orders as TURBO_STREAM
+  Parameters: {"user_id"=>"32", "id"=>"32"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:61:in `fetch_orders'
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 11.8ms (1 query, 0 cached) | GC: 17.2ms)
+
+
+  
+NameError (undefined local variable or method `user_id' for an instance of UsersController):
+  
+app/controllers/users_controller.rb:62:in `fetch_orders'
+Started GET "/" for ::1 at 2024-06-27 00:04:48 +0530
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  Rendered users/index.html.erb within layouts/application (Duration: 36.0ms | GC: 6.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 67.6ms | GC: 11.3ms)
+Completed 200 OK in 76ms (Views: 53.2ms | ActiveRecord: 17.8ms (1 query, 0 cached) | GC: 11.3ms)
+
+
+Started GET "/manifest.json" for ::1 at 2024-06-27 00:04:48 +0530
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users/32/fetch_orders" for ::1 at 2024-06-27 00:04:52 +0530
+Processing by UsersController#fetch_orders as TURBO_STREAM
+  Parameters: {"user_id"=>"32", "id"=>"32"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:61:in `fetch_orders'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - /Users/prasanna/goshposh/buycom/public/orders/user_32_orders.csv):
+  
+app/controllers/users_controller.rb:65:in `fetch_orders'
+Started GET "/" for ::1 at 2024-06-27 00:05:39 +0530
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  Rendered users/index.html.erb within layouts/application (Duration: 32.8ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 57.1ms | GC: 3.8ms)
+Completed 200 OK in 66ms (Views: 37.9ms | ActiveRecord: 22.2ms (1 query, 0 cached) | GC: 4.5ms)
+
+
+Started GET "/manifest.json" for ::1 at 2024-06-27 00:05:39 +0530
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 1.3ms | GC: 0.6ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.1ms)
+
+
+Started POST "/users/32/fetch_orders" for ::1 at 2024-06-27 00:05:42 +0530
+Processing by UsersController#fetch_orders as TURBO_STREAM
+  Parameters: {"user_id"=>"32", "id"=>"32"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `fetch_orders'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 6.0ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - /Users/prasanna/goshposh/buycom/public/orders/user_32_orders.csv):
+  
+app/controllers/users_controller.rb:66:in `fetch_orders'
+Started GET "/" for ::1 at 2024-06-27 00:07:04 +0530
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  Rendered users/index.html.erb within layouts/application (Duration: 16.5ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 51.8ms | GC: 7.8ms)
+Completed 200 OK in 61ms (Views: 48.9ms | ActiveRecord: 5.7ms (1 query, 0 cached) | GC: 8.9ms)
+
+
+Started GET "/manifest.json" for ::1 at 2024-06-27 00:07:04 +0530
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users/32/fetch_orders" for ::1 at 2024-06-27 00:07:05 +0530
+Processing by UsersController#fetch_orders as TURBO_STREAM
+  Parameters: {"user_id"=>"32", "id"=>"32"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `fetch_orders'
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - /Users/prasanna/goshposh/buycom/public/orders/user_32_orders.csv):
+  
+app/controllers/users_controller.rb:65:in `initialize'
+app/controllers/users_controller.rb:65:in `open'
+app/controllers/users_controller.rb:65:in `fetch_orders'
+Started GET "/" for ::1 at 2024-06-27 00:08:04 +0530
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  Rendered users/index.html.erb within layouts/application (Duration: 40.9ms | GC: 13.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 112.9ms | GC: 54.6ms)
+Completed 200 OK in 138ms (Views: 106.5ms | ActiveRecord: 13.9ms (1 query, 0 cached) | GC: 66.1ms)
+
+
+Started GET "/manifest.json" for ::1 at 2024-06-27 00:08:04 +0530
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.9ms | GC: 0.4ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started POST "/users/32/fetch_orders" for ::1 at 2024-06-27 00:08:05 +0530
+Processing by UsersController#fetch_orders as TURBO_STREAM
+  Parameters: {"user_id"=>"32", "id"=>"32"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:64:in `fetch_orders'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - /Users/prasanna/goshposh/buycom/public/orders/user_32_orders.csv):
+  
+app/controllers/users_controller.rb:67:in `initialize'
+app/controllers/users_controller.rb:67:in `open'
+app/controllers/users_controller.rb:67:in `fetch_orders'
+Started GET "/" for ::1 at 2024-06-27 00:08:26 +0530
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  Rendered users/index.html.erb within layouts/application (Duration: 19.2ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 100.1ms | GC: 50.0ms)
+Completed 200 OK in 111ms (Views: 98.6ms | ActiveRecord: 5.9ms (1 query, 0 cached) | GC: 50.2ms)
+
+
+Started GET "/manifest.json" for ::1 at 2024-06-27 00:08:26 +0530
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users/32/fetch_orders" for ::1 at 2024-06-27 00:08:27 +0530
+Processing by UsersController#fetch_orders as TURBO_STREAM
+  Parameters: {"user_id"=>"32", "id"=>"32"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:64:in `fetch_orders'
+  [1m[36mOrderDetail Load (1.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/controllers/users_controller.rb:72:in `block in fetch_orders'
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+Completed 500 Internal Server Error in 121ms (ActiveRecord: 38.3ms (7 queries, 0 cached) | GC: 3.3ms)
+
+
+  
+NameError (undefined local variable or method `file_path' for an instance of UsersController):
+  
+app/controllers/users_controller.rb:76:in `fetch_orders'
+Started GET "/" for ::1 at 2024-06-27 00:08:42 +0530
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (11.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  Rendered users/index.html.erb within layouts/application (Duration: 82.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 121.3ms | GC: 0.0ms)
+Completed 200 OK in 134ms (Views: 96.2ms | ActiveRecord: 28.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for ::1 at 2024-06-27 00:08:43 +0530
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users/32/fetch_orders" for ::1 at 2024-06-27 00:08:44 +0530
+Processing by UsersController#fetch_orders as TURBO_STREAM
+  Parameters: {"user_id"=>"32", "id"=>"32"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:64:in `fetch_orders'
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/controllers/users_controller.rb:72:in `block in fetch_orders'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+Sent file /tmp/user_32_orders.csv (2.1ms)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 11.9ms (7 queries, 0 cached) | GC: 7.8ms)
+
+
+  
+ActionController::RespondToMismatchError (respond_to was called multiple times and matched with conflicting formats in this action. Please note that you may only call respond_to and match on a single format per action.):
+  
+app/controllers/users_controller.rb:78:in `fetch_orders'
+Started GET "/" for ::1 at 2024-06-27 00:08:56 +0530
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  Rendered users/index.html.erb within layouts/application (Duration: 40.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 95.0ms | GC: 0.0ms)
+Completed 200 OK in 111ms (Views: 76.3ms | ActiveRecord: 23.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for ::1 at 2024-06-27 00:08:57 +0530
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users/32/fetch_orders" for ::1 at 2024-06-27 00:08:59 +0530
+Processing by UsersController#fetch_orders as TURBO_STREAM
+  Parameters: {"user_id"=>"32", "id"=>"32"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:64:in `fetch_orders'
+  [1m[36mOrderDetail Load (0.9ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/controllers/users_controller.rb:72:in `block in fetch_orders'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block (2 levels) in fetch_orders'
+Sent file /tmp/user_32_orders.csv (0.3ms)
+Completed 200 OK in 96ms (ActiveRecord: 28.7ms (7 queries, 0 cached) | GC: 5.7ms)
+
+
+Started GET "/users" for ::1 at 2024-06-27 00:12:21 +0530
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:28
+  Rendered users/index.html.erb within layouts/application (Duration: 33.6ms | GC: 10.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 94.6ms | GC: 39.5ms)
+Completed 200 OK in 109ms (Views: 86.6ms | ActiveRecord: 12.0ms (1 query, 0 cached) | GC: 40.4ms)
+
+
+Started GET "/manifest.json" for ::1 at 2024-06-27 00:12:21 +0530
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.9ms)
+
+
+Started POST "/users/32/fetch_orders" for ::1 at 2024-06-27 00:12:23 +0530
+Processing by UsersController#fetch_orders as TURBO_STREAM
+  Parameters: {"user_id"=>"32", "id"=>"32"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:64:in `fetch_orders'
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/controllers/users_controller.rb:71:in `block in fetch_orders'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (2.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72:in `block (2 levels) in fetch_orders'
+Sent file /tmp/user_32_orders.csv (0.3ms)
+Completed 200 OK in 176ms (ActiveRecord: 49.5ms (7 queries, 0 cached) | GC: 23.3ms)
+
+
+Started POST "/users/32/fetch_orders" for ::1 at 2024-06-27 00:14:11 +0530
+Processing by UsersController#fetch_orders as TURBO_STREAM
+  Parameters: {"user_id"=>"32", "id"=>"32"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:64:in `fetch_orders'
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."user_id" = $1[0m  [["user_id", 32]]
+  ↳ app/controllers/users_controller.rb:71:in `block in fetch_orders'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72:in `block (2 levels) in fetch_orders'
+Sent file /tmp/user_32_orders.csv (0.3ms)
+Completed 200 OK in 36ms (ActiveRecord: 2.2ms (7 queries, 0 cached) | GC: 2.3ms)
+
+
+Started POST "/users/41/fetch_orders" for ::1 at 2024-06-27 00:14:39 +0530
+Processing by UsersController#fetch_orders as TURBO_STREAM
+  Parameters: {"user_id"=>"41", "id"=>"41"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:64:in `fetch_orders'
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."user_id" = $1[0m  [["user_id", 41]]
+  ↳ app/controllers/users_controller.rb:71:in `block in fetch_orders'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72:in `block (2 levels) in fetch_orders'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:72:in `block (2 levels) in fetch_orders'
+Sent file /tmp/user_41_orders.csv (0.3ms)
+Completed 200 OK in 20ms (ActiveRecord: 1.8ms (5 queries, 0 cached) | GC: 1.8ms)
+
+
